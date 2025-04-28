@@ -1,0 +1,178 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0hpw1qospwjv"]
+
+[ext_resource type="Script" uid="uid://wf8oqkigmbwo" path="res://main_screen.gd" id="1_tjn2e"]
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tjn2e")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label5" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Mouth state"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MouthOpenButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mouth opened"
+
+[node name="MouthClosedButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mouth closed"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sound speed"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Slow if length is above >:"
+
+[node name="LenSlowSpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.01
+value = 1.0
+allow_greater = true
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Fast if length is below <:"
+
+[node name="LenFastSpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.01
+value = 0.4
+allow_greater = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SpeedSlowButton" type="Button" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slow"
+
+[node name="SpeedMediumButton" type="Button" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Medium"
+
+[node name="SpeedFastButton" type="Button" parent="VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fast"
+
+[node name="PreviewButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "PREVIEW"
+
+[node name="FileNameLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Current file name: somemoan.ogg"
+
+[node name="LengthLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Length: 0.5 s"
+
+[node name="SortAmountLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Files left to sort: 1"
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Sound intensity"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="IntensityLowButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sort to Low"
+
+[node name="IntensityMediumButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sort to Medium"
+
+[node name="IntensityHighButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sort to High"
+
+[node name="SPACEHOLDER" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Util buttons"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="GatherFromFolderButton" type="Button" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Gather from folder"
+
+[node name="GatherFolderWindow" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+title = "Pick folder to gather sounds from"
+size = Vector2i(400, 400)
+
+[node name="GatherFolderItemList" type="ItemList" parent="GatherFolderWindow"]
+unique_name_in_owner = true
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 392.0
+offset_bottom = 351.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+select_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MouthOpenButton" to="." method="_on_mouth_open_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MouthClosedButton" to="." method="_on_mouth_closed_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/SpeedSlowButton" to="." method="_on_speed_slow_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/SpeedMediumButton" to="." method="_on_speed_medium_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/SpeedFastButton" to="." method="_on_speed_fast_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PreviewButton" to="." method="_on_preview_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/IntensityLowButton" to="." method="_on_intensity_low_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/IntensityMediumButton" to="." method="_on_intensity_medium_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/IntensityHighButton" to="." method="_on_intensity_high_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/GatherFromFolderButton" to="." method="_on_gather_from_folder_button_pressed"]
+[connection signal="confirmed" from="GatherFolderWindow" to="." method="_on_gather_folder_window_confirmed"]
