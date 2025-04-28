@@ -4,7 +4,8 @@
 ![pic](https://github.com/user-attachments/assets/66cdb4ea-3476-4899-ac45-e677e05982f8)
 
 # How to use
-1) Copy the [.exe file](../../releases) into the folder that has all the sounds
+0) Prepare the moans. Each moan needs to be a separated .ogg, .wav or .mp3 file. If you have many moans in one file, you will have to split them yourself first!
+1) Copy the [.exe file](../../releases) into the folder that has all the moans/sounds
 2) Launch it. App will gather the list of sounds and select the first one. Press 'PREVIEW' to hear how the first sound sounds.
 3) Using the 2 buttons, pick the sound's mouth state (Opened or closed). Opened means the moan sounds like Ahhhh. Closed means Mmmmh. You get the idea x3
 4) Using the 3 buttons, pick the sound's speed. Slow, Medium or Fast. Up to you to decide. But the app will automatically try to guess it from the sound's length.
