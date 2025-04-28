@@ -224,7 +224,7 @@ func sortCurrentToIntensity(newIntensity:int):
 	
 	var finalFilePath:String = finalFolder.path_join(freeNumberName+"."+currentFilePath.get_extension())
 	
-	DirAccess.rename_absolute(currentFilePath, finalFilePath)
+	moveFileAndImportFile(currentFilePath, finalFilePath)
 	#print("MOVE FROM: '"+currentFilePath+"' TO '"+finalFilePath+"'")
 	scanPaths(true)
 	_on_preview_button_pressed()
@@ -269,6 +269,11 @@ func _on_gather_folder_window_confirmed() -> void:
 			var freeNumberName:String = getFreeNumberFileNameFromFolder(targetPath)
 			
 			var finalTargetPath:String = targetPath.path_join(freeNumberName+"."+soundPath.get_extension())
-			DirAccess.rename_absolute(soundPath, finalTargetPath)
+			moveFileAndImportFile(soundPath, finalTargetPath)
 		
 	scanPaths(true)
+
+func moveFileAndImportFile(soundPath:String, finalTargetPath:String):
+	if(DirAccess.rename_absolute(soundPath, finalTargetPath) == OK):
+		if(FileAccess.file_exists(soundPath+".import")):
+			DirAccess.rename_absolute(soundPath+".import", finalTargetPath+".import")
