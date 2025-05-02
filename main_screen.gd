@@ -277,3 +277,15 @@ func moveFileAndImportFile(soundPath:String, finalTargetPath:String):
 	if(DirAccess.rename_absolute(soundPath, finalTargetPath) == OK):
 		if(FileAccess.file_exists(soundPath+".import")):
 			DirAccess.rename_absolute(soundPath+".import", finalTargetPath+".import")
+
+var loudnessCreatorScene := preload("res://loudness_creator.tscn")
+
+func _on_loudness_creator_button_pressed() -> void:
+	var newWindow := Window.new()
+	
+	get_tree().root.add_child(newWindow)
+	
+	newWindow.add_child(loudnessCreatorScene.instantiate())
+	newWindow.close_requested.connect(func(): newWindow.queue_free())
+	
+	newWindow.popup_centered(Vector2i(int(size.x), int(size.y))-Vector2i(0, 50))

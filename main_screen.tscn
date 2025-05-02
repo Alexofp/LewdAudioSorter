@@ -150,6 +150,10 @@ layout_mode = 2
 layout_mode = 2
 text = "Gather from folder"
 
+[node name="LoudnessCreatorButton" type="Button" parent="VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Loudness over time creator"
+
 [node name="GatherFolderWindow" type="ConfirmationDialog" parent="."]
 unique_name_in_owner = true
 title = "Pick folder to gather sounds from"
@@ -175,4 +179,5 @@ select_mode = 2
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/IntensityMediumButton" to="." method="_on_intensity_medium_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/IntensityHighButton" to="." method="_on_intensity_high_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer5/GatherFromFolderButton" to="." method="_on_gather_from_folder_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer5/LoudnessCreatorButton" to="." method="_on_loudness_creator_button_pressed"]
 [connection signal="confirmed" from="GatherFolderWindow" to="." method="_on_gather_folder_window_confirmed"]
